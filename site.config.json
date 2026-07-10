@@ -1,10 +1,10 @@
 {
   "siteTitle": "Personal News Digest",
-  "description": "A personal daily news page for the topics you care about.",
+  "description": "A personal daily news page for the topics and news from Northampton County, PA",
   "eyebrow": "Daily Brief",
   "digestTitlePrefix": "Personal News Digest",
-  "topic": "news you care about",
-  "audience": "a personal daily reader",
+  "topic": "News from Northampton County, PA. Check local county records and other official sources for news. then survey and aggregate additional reporting into a concise executive summary",
+  "audience": "a personal daily reader and resident of Northampton County",
   "coverageWindow": "last 24 hours",
   "timezone": "America/New_York",
   "publishTimeLocal": "06:30",
