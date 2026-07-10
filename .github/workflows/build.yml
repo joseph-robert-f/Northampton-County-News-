@@ -1,0 +1,90 @@
+name: Build and deploy site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      pages_enabled: ${{ steps.pages.outputs.enabled }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Validate site config
+        run: node scripts/validate-config.mjs
+      - name: Generate digests.json
+        run: node scripts/build-manifest.mjs
+      - name: Generate feed and sitemap
+        run: node scripts/build-feed.mjs
+      - name: Stage site files for publishing
+        run: |
+          mkdir -p _site
+          cp index.html archive.html 404.html digests.json site.config.json _site/
+          cp -r assets _site/
+          touch _site/.nojekyll
+          # feed.xml/sitemap.xml are only written when siteUrl is configured;
+          # skip them without failing the build otherwise.
+          for f in feed.xml sitemap.xml; do
+            if [ -f "$f" ]; then
+              cp "$f" _site/
+            fi
+          done
+          # Copy any top-level YYYY/ directories
+          for dir in [0-9][0-9][0-9][0-9]/; do
+            if [ -d "$dir" ]; then
+              cp -r "$dir" _site/
+            fi
+          done
+      - name: Check GitHub Pages setup
+        id: pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          status="$(curl -L -sS -o /tmp/pages.json -w "%{http_code}" \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/pages")"
+          if [ "$status" = "200" ]; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if [ "$status" = "404" ]; then
+            echo "::notice title=GitHub Pages is not enabled::Enable Pages in Settings -> Pages -> Build and deployment -> Source: GitHub Actions, then rerun this workflow."
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          cat /tmp/pages.json
+          exit 1
+      - uses: actions/configure-pages@v5
+        if: steps.pages.outputs.enabled == 'true'
+      - uses: actions/upload-pages-artifact@v3
+        if: steps.pages.outputs.enabled == 'true'
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    if: needs.build.outputs.pages_enabled == 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
