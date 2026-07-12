@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="data:,">
+  <!-- The site reads the date from this title. Keep the generated "D Month YYYY" date. -->
+  <title>Personal News Digest &mdash; 12 July 2026</title>
+  <!-- One-line summary. The archive uses this as the preview. -->
+  <meta name="description" content="Northampton County Council and courts remained active this week, with a fire-safety oversight controversy in Easton and a major sentencing in a 2025 homicide case topping local coverage as of July 12, 2026.">
+  <!-- Social preview metadata (Open Graph). -->
+  <meta property="og:title" content="Personal News Digest &mdash; 12 July 2026">
+  <meta property="og:description" content="Northampton County Council and courts remained active this week, with a fire-safety oversight controversy in Easton and a major sentencing in a 2025 homicide case topping local coverage as of July 12, 2026.">
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2026-07-12">
+  <style>
+    :root {
+      --ink: #17181c;
+      --muted: #6b7280;
+      --faint: #6d737c;
+      --line: #ececef;
+      --bg: #ffffff;
+      --panel: #fafafa;
+      --accent: #2563eb;
+      --link: #2563eb;
+      --maxw: 720px;
+      --lead: #2c2f36;
+      --detail: #33363d;
+    }
+    /* Kept inline (not shared via assets/site.js) so each digest stays a
+       self-contained file per the Content Bar rule. */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --ink: #e7e9ec;
+        --muted: #9aa3ad;
+        --faint: #7d8592;
+        --link: #5b8def;
+        --line: #2b2e34;
+        --bg: #101114;
+        --panel: #1a1c20;
+        --lead: #d7d9dd;
+        --detail: #c4c8cf;
+      }
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.65;
+      margin: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    main { max-width: var(--maxw); margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+
+    .masthead { margin-bottom: 2.25rem; }
+    .eyebrow {
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--link); margin-bottom: 0.5rem;
+    }
+    .masthead h1 {
+      font-size: 2rem; font-weight: 700; letter-spacing: -0.02em;
+      margin: 0 0 0.6rem; line-height: 1.15;
+    }
+    .subline {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 0.55rem;
+      color: var(--muted); font-size: 0.9rem;
+    }
+    .subline .dot { color: var(--faint); }
+    .readtime {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      font-weight: 600; color: var(--ink);
+      background: var(--panel); border: 1px solid var(--line);
+      padding: 0.12rem 0.55rem; border-radius: 999px; font-size: 0.82rem;
+    }
+
+    .glance {
+      background: var(--panel); border: 1px solid var(--line);
+      border-radius: 12px; padding: 1.25rem 1.5rem 1.4rem; margin-bottom: 2.5rem;
+    }
+    .glance h2 {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--muted); margin: 0 0 0.85rem;
+    }
+    .bullets { margin: 0; padding: 0; list-style: none; counter-reset: g; }
+    .bullets li {
+      position: relative; padding-left: 2rem; margin-bottom: 0.7rem;
+      font-size: 0.98rem;
+    }
+    .bullets li:last-child { margin-bottom: 0; }
+    .bullets li::before {
+      counter-increment: g; content: counter(g);
+      position: absolute; left: 0; top: 0.05rem;
+      width: 1.4rem; height: 1.4rem; border-radius: 50%;
+      background: var(--accent); color: #fff;
+      font-size: 0.75rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .bullets li strong { font-weight: 700; }
+
+    .story { padding: 1.5rem 0; border-top: 1px solid var(--line); }
+    .story:first-of-type { border-top: none; padding-top: 0; }
+    .kicker { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem; }
+    .tag {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--link);
+    }
+    .kicker .when { font-size: 0.78rem; color: var(--faint); }
+    .story h3 {
+      font-size: 1.18rem; font-weight: 700; letter-spacing: -0.01em;
+      margin: 0 0 0.5rem; line-height: 1.3;
+    }
+    .lead { margin: 0; font-size: 1rem; color: var(--lead); }
+    .lead .wm { font-weight: 700; color: var(--ink); }
+
+    details { margin-top: 0.75rem; }
+    summary {
+      cursor: pointer; list-style: none; display: inline-flex; align-items: center; gap: 0.35rem;
+      font-size: 0.82rem; font-weight: 600; color: var(--link);
+      user-select: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: ">"; transition: transform 0.15s ease; font-size: 1rem; }
+    details[open] summary::after { transform: rotate(90deg); }
+    summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+    .detail { padding-top: 0.6rem; color: var(--detail); font-size: 0.95rem; }
+    .detail p { margin: 0 0 0.75rem; }
+    ul.sources { margin: 0.5rem 0 0; padding-left: 1.1rem; font-size: 0.85rem; color: var(--muted); }
+    ul.sources li { margin-bottom: 0.2rem; }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    footer {
+      margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--line);
+      color: var(--faint); font-size: 0.82rem;
+    }
+    @media (max-width: 480px) { main { padding: 2rem 1.15rem 3rem; } .masthead h1 { font-size: 1.6rem; } }
+  </style>
+</head>
+<body>
+<main>
+  <header class="masthead">
+    <div class="eyebrow">Daily Brief</div>
+    <h1>12 July 2026</h1>
+    <div class="subline">
+      <span class="readtime" id="readtime">&mdash; min read</span>
+      <span class="dot">&middot;</span>
+      <span>Coverage: last 24 hours</span>
+    </div>
+  </header>
+
+  <!-- The five things this audience needs first. One line each. -->
+  <section class="glance">
+    <h2>At a glance</h2>
+    <ol class="bullets" data-summary>
+      <li>Easton officials faced questions this week over code-enforcement lapses tied to the deadly Hotel Hampton fire.</li>
+      <li>Northampton County Council&#39;s next bi-monthly meeting is set for Thursday, July 16, 2026 at 6:30 p.m., with committee sessions on July 15-16.</li>
+      <li>A Bethlehem Township man, James Christopher Frank, was sentenced to life in prison for the 2025 stabbing death of his wife.</li>
+      <li>County committee meetings this week include Personnel &amp; Finance and Governance (July 15) and Energy, Environment &amp; Land Use (July 16).</li>
+      <li>Greater Lehigh Valley home prices hit a record median of $375,000, up 8.7% year over year, per new realtor association data.</li>
+    </ol>
+  </section>
+
+  <!-- One <article> per story. Keep the top layer skimmable; put context and sources in <details>. -->
+    <article class="story">
+    <div class="kicker"><span class="tag">Public Safety / Government Accountability</span><span class="when">Ongoing coverage as of the week of July 6-12, 2026</span></div>
+    <h3>Easton officials pressed on code-enforcement failures tied to Hotel Hampton fire</h3>
+    <p class="lead"><span class="wm">Why it matters:</span> Residents of Easton&#39;s rental housing stock need assurance that city inspectors are correctly classifying and monitoring boarding-style properties, after officials acknowledged the Hotel Hampton had been on record as a hotel — not a rooming house — dating back decades, raising questions about whether proper fire-safety oversight was applied.</p>
+    <details>
+      <summary>Detail &amp; sources</summary>
+      <div class="detail">
+        <p>Easton&#39;s Planning and Codes Director, Dwayne Tillman, told officials that city records dating to a 1977 certificate of occupancy consistently identified the Hotel Hampton property as a hotel rather than a rooming or boarding house, a classification distinction that affects which fire and safety codes apply. The disclosure came amid continued scrutiny of the city&#39;s oversight of the property following a fatal fire there, with local reporting pressing city leaders on whether inspection and code-enforcement protocols were adequate.</p>
+        <ul class="sources">
+          <li><a href="https://www.lehighvalleynews.com/northampton-county">Easton officials pressed on oversight failures in Hotel Hampton fire</a></li>
+        </ul>
+      </div>
+    </details>
+  </article>
+  <article class="story">
+    <div class="kicker"><span class="tag">Courts / Public Safety</span><span class="when">Sentencing announced via DA news release, June 17, 2026</span></div>
+    <h3>Bethlehem Township man sentenced to life in prison for stabbing death of his wife</h3>
+    <p class="lead"><span class="wm">Why it matters:</span> The sentencing closes out a violent 2025 domestic homicide case and reflects the Northampton County District Attorney&#39;s continued push for maximum penalties in violent-crime prosecutions, a point of ongoing public interest for county residents tracking local crime trends.</p>
+    <details>
+      <summary>Detail &amp; sources</summary>
+      <div class="detail">
+        <p>Northampton County District Attorney Stephen G. Baratta announced that James Christopher Frank of Bethlehem Township was sentenced to life in prison after being convicted of first-degree murder in the 2025 stabbing death of his wife, according to a DA&#39;s office media release.</p>
+        <ul class="sources">
+          <li><a href="https://norcoda.com/wp-content/uploads/2026/06/Media-Release-06.17.2026.pdf">Media Release - Office of the District Attorney, Northampton County (06.17.2026)</a></li>
+        </ul>
+      </div>
+    </details>
+  </article>
+
+  <footer>Curated for a personal daily reader and resident of Northampton County. Generated 12 July 2026.</footer>
+</main>
+
+<script>
+  // Reading time is based on the skim surface, since details are collapsed by default.
+  (function () {
+    var nodes = document.querySelectorAll('.bullets li, .story h3, .story .lead');
+    var text = Array.prototype.map.call(nodes, function (n) { return n.textContent; }).join(' ');
+    if (!text.trim()) text = document.body.textContent;
+    var words = (text.trim().match(/\S+/g) || []).length;
+    var mins = Math.max(1, Math.round(words / 220));
+    var el = document.getElementById('readtime');
+    if (el) el.textContent = mins + ' min read';
+  })();
+</script>
+</body>
+</html>
